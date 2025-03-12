@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nota Fiscal</title>
+    <style>
+        table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+        th {
+            background-color: #f2f2f2;
+            border: 1px solid black;
+        }
+        tr {
+            text-align: left;
+        }
+        td {
+            text-align: left;
+            border: 1px solid black;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.3/purify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div id="notaFiscal" style="border: 2px solid black; padding: 10px;">
+        <div style="display: flex; justify-content: center; align-items: center; font-weight: bold;">
+            DANFE - Documento Auxiliar da Nota Fiscal Eletrônica
+        </div>
+        <div style="border: 1px solid black; padding: 10px;">
+            <strong> CHAVE DE ACESSO: </strong>{{pedido.chave_acesso}}
+        </div>
+        <p></p>
+        <div style="border: 1px solid black; padding: 10px;">
+            <p><strong>Destinatário:</strong> {{pedido.cliente.nome}}</p>
+            <p><strong>Data Nascimento:</strong>{{pedido.cliente.datanascimento}}</p>
+            <p><strong>CPF/CNPJ:</strong> {{pedido.cliente.cpf}}</p>
+        </div>
+        <p></p>
+        <div style="border: 1px solid black; padding: 10px;">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Descrição</th>
+                        <th>Qtd</th>
+                        <th>Valor Unitário</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in pedido.itempedido_set.all %}
+                    <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.produto.nome }}</td>
+                        <td>{{ item.qtde }}</td>
+                        <td>R$ {{ item.produto.preco}}</td>
+                        <td>R$ {{ item.subtotal}}</td>           
+                    </tr>
+                    {% endfor %}
+                </tbody>            
+            </table>
+        </div>
+        <p></p>
+        <div style="border: 1px solid black; padding: 10px;">
+            <div style="display: flex; justify-content: space-between;">
+                <div><strong>ICMS.......: R$</strong> {{pedido.valor_icms}}</div>
+                <div><strong>IPI.............: R$</strong> {{pedido.valor_ipi}}</div>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+                <div><strong>PIS...........: R$</strong> {{pedido.valor_pis}}</div>
+                <div><strong>COFINS....: R$</strong> {{pedido.valor_confins}}</div>
+            </div>
+        </div>
+        <p></p>
+        <div style="border: 1px solid black; padding: 10px;">
+            <p><strong>Total.........: R$</strong> {{pedido.total}}</p>
+            <p><strong>Impostos...: R$</strong> {{pedido.valor_total_impostos}}</p>
+            <p><strong>Valor Final: R$</strong> {{pedido.valor_final}}</p>
+        </div>
+        <div style="display: flex; justify-content: center; align-items: center; font-weight: bold;">
+            Recebemos os produtos constantes nesta nota fiscal.
+        </div>
+    </div>
+
+    <div style="display: flex; justify-content: center; align-items: center; padding-top: 20px;">
+        <button type="button" id="baixarPdfBtn" class="btn btn-info btn-sm">Baixar Nota Fiscal em PDF</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById("baixarPdfBtn").addEventListener('click', baixarNotaFiscal);
+        });
+
+        function baixarNotaFiscal() {
+            const notaFiscalElement = document.getElementById("notaFiscal");
+            
+            // Verifica se o elemento com o ID 'notaFiscal' existe
+            if (notaFiscalElement) {
+                html2canvas(notaFiscalElement, {
+                    onrendered: function(canvas) {
+                        const { jsPDF } = window.jspdf;
+                        const doc = new jsPDF();
+                        
+                        // Adiciona o canvas como uma imagem ao PDF
+                        doc.addImage(canvas.toDataURL(), 'PNG', 10, 10, 180, 160);  // Ajuste os parâmetros conforme necessário
+
+                        // Salva o PDF
+                        doc.save("nota_fiscal.pdf");
+                    }
+                });
+            } else {
+                console.error("Elemento com o ID 'notaFiscal' não encontrado.");
+            }
+        }
+    </script>
+</body>
+</html>

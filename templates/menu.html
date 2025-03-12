@@ -1,0 +1,50 @@
+<ul class="nav flex-column">
+    <li class="nav-item">
+        <a href="{% url "index" %}" class="nav-link"><i class="fas fa-home"></i> <span>Home</span></a>
+    </li>
+    <li class="nav-item">
+        <a href="#" class="nav-link"><i class="fas fa-chart-bar"></i> <span>Cadastro</span></a>
+        <ul class="submenu nav flex-column">
+            <li class="nav-item">
+                <a href="{% url 'categoria' %}" class="nav-link">Categorias</a>
+            </li>
+            
+            <li class="nav-item">
+                <a href="{%url 'produto' %}" class="nav-link">Produtos</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'cliente' %}" class="nav-link">Clientes</a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'pedido' %}" class="nav-link">Pedidos</a>
+            </li>
+        </ul>
+    </li>
+    <!--
+    <li class="nav-item">
+        <a href="#" class="nav-link"><i class="fas fa-users"></i> <span>Clientes</span></a>
+        <ul class="submenu nav flex-column">
+            <li class="nav-item">
+                <a href="#" class="nav-link">Listagem</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Add User</a>
+            </li>
+        </ul>
+    </li>
+    -->
+    <li class="nav-item">
+        <a href="#" class="nav-link"><i class="fas fa-cogs"></i> <span>Testes</span></a>
+        <ul class="submenu nav flex-column">
+            <li class="nav-item">
+                <a href="{%url 'teste1' %}" class="nav-link">Teste 1</a>
+            </li>
+            <li class="nav-item">
+                <a href="{%url 'teste2' %}" class="nav-link">Teste 2</a>
+            </li>
+            <li class="nav-item">
+                <a href="{%url 'teste3' %}" class="nav-link">Teste 3</a>
+            </li>
+        </ul>
+    </li>
+</ul>

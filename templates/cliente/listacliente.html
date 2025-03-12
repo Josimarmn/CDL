@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block titulo_conteudo %} Listagem de Clientes {% endblock titulo_conteudo %}
+
+{% block conteudo %}
+
+<button class="btn btn-primary" onclick="location.href='{% url 'form_cliente' %}'">Inserir Novo</button>
+<button class="btn btn-primary" onclick="location.href='{% url 'cliente' %}'">Recarregar</button>
+
+<p></p>
+
+<table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Nome</th>
+            <th scope="col">C.P.F</th>
+            <th scope="col">Data Nascimento</th>
+            <th scope="col" style="width: 300px;">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in listacliente %}
+        <tr>
+            <td> {{item.id}}</td>
+            <td> {{item.nome}}</td>
+            <td> {{item.cpf}}</td>
+            <td> {{item.datanascimento}}</td>
+            <td>
+                <button class="btn btn-info text-white btn-sm me-1" onclick="location.href='{% url 'novo_pedido'  item.id %}'">Novo Pedido</button>
+
+                <button class="btn btn-warning btn-sm me-1" onclick="location.href='{% url 'editar_cliente' item.id %}'">Editar</button>
+
+                {% comment %} <button class="btn btn-danger btn-sm" onclick="location.href='{% url 'remover_categoria' item.id %}'">Excluir</button> {% endcomment %}
+
+                <button onclick="if(confirm('Quer realmente excluir este cliente?')) location.href='{% url 'remover_cliente' item.id %}'"class="btn btn-danger">Remover</button>
+
+            </td>
+        </tr>
+
+
+        {% endfor %}
+      
+    </tbody>
+</table>
+
+{% endblock conteudo %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block titulo_conteudo %} Detalhes do Produto {% endblock titulo_conteudo %}
+
+{% block conteudo %}
+
+<table class="table table-bordered">
+  <tbody>
+      <tr>
+          <td>Código:</td>
+          <td>{{ produto.id }}</td>
+      </tr>
+      <tr>
+          <td>Descrição:</td>
+          <td>{{ produto.nome }}</td>
+      </tr>
+      <tr>
+        <td>Quantidade:</td>
+        <td>{{ produto.estoque.qtde }}</td>
+    </tr>
+      <tr>
+          <td>Valor:</td>
+          <td>{{ produto.preco }}</td>
+      </tr>
+      <tr>
+        <td>Imagem:</td>
+        <td><img src="{{produto.img_base64}}" style="width:200px; height: 200px"></td>
+      </tr>
+  </tbody>
+</table>
+<a href="{% url 'produto' %}" class="btn btn-secondary">Voltar</a>
+
+{% endblock conteudo %}

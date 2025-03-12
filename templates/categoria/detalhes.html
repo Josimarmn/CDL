@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block titulo_conteudo %} Detalhes da Categoria {% endblock titulo_conteudo %}
+
+{% block conteudo %}
+
+<table class="table table-bordered">
+  <tbody>
+      <tr>
+          <td>Código:</td>
+          <td>{{ categoria.id }}</td>
+      </tr>
+      <tr>
+          <td>Descrição:</td>
+          <td>{{ categoria.nome }}</td>
+      </tr>
+      <tr>
+          <td>Valor:</td>
+          <td>{{ categoria.ordem }}</td>
+      </tr>
+  </tbody>
+</table>
+<a href="{% url 'categoria' %}" class="btn btn-secondary">Voltar</a>
+
+{% endblock conteudo %}
