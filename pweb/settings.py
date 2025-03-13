@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'pweb.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-   'default': dj_database_url.parse('postgres://neondb_owner:fOl9R8HnhpsV@ep-frosty-sunset-a5zureji-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require')
+   'default': dj_database_url.parse('postgres://neondb_owner:npg_Ombp0PuFUn1w@ep-solitary-bird-ackf0ux0-pooler.sa-east-1.aws.neon.tech/neondb?sslmode=require')
 }
 
 
