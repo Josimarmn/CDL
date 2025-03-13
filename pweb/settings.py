@@ -78,9 +78,23 @@ WSGI_APPLICATION = 'pweb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+#DATABASES = {
+#   'default': dj_database_url.parse('postgres: neondb_owner:npg_Ombp0PuFUn1w@ep-solitary-bird-ackf0ux0-pooler.#sa-east-1.aws.neon.tech/neondb?sslmode=require')
+#}
+
+
 DATABASES = {
-   'default': dj_database_url.parse('postgres://neondb_owner:npg_Ombp0PuFUn1w@ep-solitary-bird-ackf0ux0-pooler.sa-east-1.aws.neon.tech/neondb?sslmode=require')
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'neondb',  # Aqui vai apenas o nome do banco de dados
+        'USER': 'neondb_owner',  # Nome de usuário
+        'PASSWORD': 'npg_Ombp0PuFUn1w',  # Senha
+        'HOST': 'ep-solitary-bird-ackf0ux0-pooler.sa-east-1.aws.neon.tech',  # Host do banco
+        'PORT': '5432',  # Porta do PostgreSQL
+    }
 }
+
+
 
 
 # Password validation
