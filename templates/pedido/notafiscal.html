@@ -33,6 +33,16 @@
         <div style="border: 1px solid black; padding: 10px;">
             <strong> CHAVE DE ACESSO: </strong>{{pedido.chave_acesso}}
         </div>
+
+        <p></p>
+        <div style="border: 1px solid black; padding: 10px;">
+            <p><strong>CADERNO DE LETRAS - CDL_Cursos</strong> </p>
+            <!--<p><strong>Data Nascimento:</strong>{{pedido.cliente.datanascimento}}</p>-->
+            <p><strong>Endereço: Av. Jóquei Clube, 299 - Jóquei, Teresina - PI, 64000-600, Brasil 5°andar Sala 506</strong></p>
+            <p><strong>Telefone: +55 85 98795-0124</strong></p>
+        </div>
+        <p></p>
+
         <p></p>
         <div style="border: 1px solid black; padding: 10px;">
             <p><strong>Destinatário:</strong> {{pedido.cliente.nome}}</p>
@@ -48,7 +58,8 @@
                         <th>Descrição</th>
                         <th>Qtd</th>
                         <th>Valor Unitário</th>
-                        <th>Total</th>
+                        <th>Valor Pago</th>
+                        <!--Antes: Total-->
                     </tr>
                 </thead>
                 <tbody>
@@ -58,7 +69,8 @@
                         <td>{{ item.produto.nome }}</td>
                         <td>{{ item.qtde }}</td>
                         <td>R$ {{ item.produto.preco}}</td>
-                        <td>R$ {{ item.subtotal}}</td>           
+                        <td>R$ {{ pedido.total_pago}}</td>   
+                        <!--Antes: item.subtotal-->        
                     </tr>
                     {% endfor %}
                 </tbody>            
@@ -79,19 +91,24 @@
         -->
         <p></p>
         <div style="border: 1px solid black; padding: 10px;">
-            <p><strong>Total.........: R$</strong> {{pedido.total}}</p>
+            <p><strong>Total.........: R$</strong> {{pedido.total_pago}}</p>
             <!--
             <p><strong>Impostos...: R$</strong> {{pedido.valor_total_impostos}}</p>
             <p><strong>Valor Final: R$</strong> {{pedido.valor_final}}</p>
         -->
         </div>
         <div style="display: flex; justify-content: center; align-items: center; font-weight: bold;">
-            Recebemos os produtos constantes nesta nota fiscal.
+            Recebemos o pagamento constante nesta nota fiscal.
         </div>
     </div>
 
     <div style="display: flex; justify-content: center; align-items: center; padding-top: 20px;">
-        <button type="button" id="baixarPdfBtn" class="btn btn-info btn-sm">Baixar Nota Fiscal em PDF</button>
+        <button type="button" id="baixarPdfBtn" class="btn btn-info btn-sm">Baixar Nota Fiscal em PDF</button>  
+        
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center; padding-top: 20px;">             
+        <a href="{% url 'editar_cliente' %}" class="btn btn-primary">Voltar</a>
+    <!--Acrescentado o botão voltar-->
     </div>
 
     <script>
