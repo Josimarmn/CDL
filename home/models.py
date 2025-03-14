@@ -70,11 +70,12 @@ class Pedido(models.Model):
     valor_ipi = models.DecimalField(max_digits=10, decimal_places=2)
     valor_pis = models.DecimalField(max_digits=10, decimal_places=2)
     valor_confins = models.DecimalField(max_digits=10, decimal_places=2)
-    total_curso01 = models.IntegerField()
-    total_curso02 = models.IntegerField()
-    total_curso03 = models.IntegerField()
-    total_curso04 = models.IntegerField()
-    total_curso05 = models.IntegerField()
+    total_curso01 = models.IntegerField(null=True)
+    total_curso02 = models.IntegerField(null=True)
+    total_curso03 = models.IntegerField(null=True)
+    total_curso04 = models.IntegerField(null=True)
+    total_curso05 = models.IntegerField(null=True)
+
 
     def __str__(self):
         return f"Pedido {self.id} - Cliente: {self.cliente.nome} - Status: {self.get_status_display()}"

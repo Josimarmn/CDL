@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-t_-cl2580se4quu7kbgb3pfsgmvx_966^1xby%l8_2bwfgjf9&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True  
+DEBUG = False  
 ALLOWED_HOSTS = ['localhost','127.0.0.1', '.vercel.app']
 
 
@@ -82,17 +82,21 @@ WSGI_APPLICATION = 'pweb.wsgi.application'
 #   'default': dj_database_url.parse('postgres: neondb_owner:npg_Ombp0PuFUn1w@ep-solitary-bird-ackf0ux0-pooler.#sa-east-1.aws.neon.tech/neondb?sslmode=require')
 #}
 
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'neondb',  # Aqui vai apenas o nome do banco de dados
-        'USER': 'neondb_owner',  # Nome de usuário
-        'PASSWORD': 'npg_Ombp0PuFUn1w',  # Senha
-        'HOST': 'ep-solitary-bird-ackf0ux0-pooler.sa-east-1.aws.neon.tech',  # Host do banco
-        'PORT': '5432',  # Porta do PostgreSQL
-    }
+   'default': dj_database_url.parse('postgres://neondb_owner:npg_Ombp0PuFUn1w@ep-solitary-bird-ackf0ux0-pooler.sa-east-1.aws.neon.tech/neondb?sslmode=require')
 }
+
+
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': 'neondb',  # Aqui vai apenas o nome do banco de dados
+#        'USER': 'neondb_owner',  # Nome de usuário
+#        'PASSWORD': 'npg_Ombp0PuFUn1w',  # Senha
+#        'HOST': 'ep-solitary-bird-ackf0ux0-pooler.sa-east-1.aws.neon.tech',  # Host do banco
+#        'PORT': '5432',  # Porta do PostgreSQL
+#    }
+#}
 
 
 
