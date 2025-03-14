@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
-{% block titulo_conteudo %} Listagem de Clientes {% endblock titulo_conteudo %}
+{% block titulo_conteudo %} Listagem de Alunos {% endblock titulo_conteudo %}
+
+<!-- Antes: Listagem de Clientes-->
 
 {% block conteudo %}
 
@@ -16,6 +18,7 @@
             <th scope="col">Nome</th>
             <th scope="col">C.P.F</th>
             <th scope="col">Data Nascimento</th>
+            <!--Trocar por Whatsapp-->
             <th scope="col" style="width: 300px;">Ações</th>
         </tr>
     </thead>
@@ -27,8 +30,8 @@
             <td> {{item.cpf}}</td>
             <td> {{item.datanascimento}}</td>
             <td>
-                <button class="btn btn-info text-white btn-sm me-1" onclick="location.href='{% url 'novo_pedido'  item.id %}'">Novo Pedido</button>
-
+                <button class="btn btn-info text-white btn-sm me-1" onclick="location.href='{% url 'novo_pedido'  item.id %}'">Nova Matrícula</button>
+                <!-- Antes: Novo Pedido-->
                 <button class="btn btn-warning btn-sm me-1" onclick="location.href='{% url 'editar_cliente' item.id %}'">Editar</button>
 
                 {% comment %} <button class="btn btn-danger btn-sm" onclick="location.href='{% url 'remover_categoria' item.id %}'">Excluir</button> {% endcomment %}

@@ -1,14 +1,15 @@
 {% extends "base.html" %}
 
-{% block titulo_conteudo %} Formulário de Produtos {% endblock titulo_conteudo %}
-
+{% block titulo_conteudo %} Formulário de Cursos {% endblock titulo_conteudo %}
+<!--Antes: Formulário de Produtos-->
 {% block conteudo %} 
 <form method="post">
     {% csrf_token %}    
     {{ form.as_p }}
 
     <p>
-        <label for="id_categoria_nome">Categoria:</label>
+        <label for="id_categoria_nome">Modalidade:</label>
+        <!--Antes: Categoria-->
         <!-- autocomplete -->
         <input type="text" value="{{form.instance.categoria}}" 
             class="form-control autocomplete" 

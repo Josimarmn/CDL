@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
-{% block titulo_conteudo %} Novo Pedido {% endblock titulo_conteudo %}
-
+{% block titulo_conteudo %} Nova Matrícula {% endblock titulo_conteudo %}
+<!--Antes: Novo Pedido-->
 {% block conteudo %} 
 
 
@@ -9,7 +9,8 @@
     {% csrf_token %}    
 
     <p>
-      <label for="id_cliente">Cliente:</label>
+      <label for="id_cliente">Aluno:</label>
+      <!--Antes: Cliente-->
       <span class="form-control" >{{form.instance.cliente.nome}}</span>  
     </p>
     <p>

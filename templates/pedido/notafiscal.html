@@ -36,7 +36,7 @@
         <p></p>
         <div style="border: 1px solid black; padding: 10px;">
             <p><strong>Destinatário:</strong> {{pedido.cliente.nome}}</p>
-            <p><strong>Data Nascimento:</strong>{{pedido.cliente.datanascimento}}</p>
+            <!--<p><strong>Data Nascimento:</strong>{{pedido.cliente.datanascimento}}</p>-->
             <p><strong>CPF/CNPJ:</strong> {{pedido.cliente.cpf}}</p>
         </div>
         <p></p>
@@ -65,6 +65,7 @@
             </table>
         </div>
         <p></p>
+        <!--
         <div style="border: 1px solid black; padding: 10px;">
             <div style="display: flex; justify-content: space-between;">
                 <div><strong>ICMS.......: R$</strong> {{pedido.valor_icms}}</div>
@@ -75,11 +76,14 @@
                 <div><strong>COFINS....: R$</strong> {{pedido.valor_confins}}</div>
             </div>
         </div>
+        -->
         <p></p>
         <div style="border: 1px solid black; padding: 10px;">
             <p><strong>Total.........: R$</strong> {{pedido.total}}</p>
+            <!--
             <p><strong>Impostos...: R$</strong> {{pedido.valor_total_impostos}}</p>
             <p><strong>Valor Final: R$</strong> {{pedido.valor_final}}</p>
+        -->
         </div>
         <div style="display: flex; justify-content: center; align-items: center; font-weight: bold;">
             Recebemos os produtos constantes nesta nota fiscal.

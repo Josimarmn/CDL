@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 
 
-{% block titulo_conteudo %} Ajuste de Estoque {% endblock titulo_conteudo %}
-
+{% block titulo_conteudo %} Ajuste de Vagas {% endblock titulo_conteudo %}
+<!--Antes: Ajuste de Estoque-->
 
 {% block conteudo %} 
 <p>
-    <label for="id_produto">Produto:</label>
+    <label for="id_produto">Cursos:</label>
+    <!--Antes: Produto-->
     <span class="form-control" >{{form.instance.produto.nome}}</span>
     </p>
 <form method="post">

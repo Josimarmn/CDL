@@ -1,24 +1,28 @@
 {% extends "base.html" %}
 
 
-{% block titulo_conteudo %} Detalhes do Pedido #{{ pedido.id }} {% endblock titulo_conteudo %}
-
+{% block titulo_conteudo %} Detalhes da Matrícula #{{ pedido.id }} {% endblock titulo_conteudo %}
+<!--Antes: Detalhes do Pedido -->
 
 {% block conteudo %} 
 
 
-<p><strong>Cliente:</strong> {{ pedido.cliente.nome }}</p>
-<p><strong>Data do Pedido:</strong> {{ pedido.data_pedidof }}</p>
+<p><strong>Aluno:</strong> {{ pedido.cliente.nome }}</p>
+<!--Antes: Cliente-->
+<p><strong>Data da Matrícula:</strong> {{ pedido.data_pedidof }}</p>
+<!--Antes: Data do Pedido-->
 <p><strong>Status:</strong> {{ pedido.get_status_display }}</p>
 
 
 <hr>
 <!-- Formulário para adicionar novos produtos -->
-<h5>Adicionar Produto</h5>
+<h5>Adicionar Curso</h5>
+<!--Antes: Adicionar Produtos-->
 <form method="POST">
     {% csrf_token %}
     <p>
-    <label for="id_produto_nome">Produto:</label>    
+    <label for="id_produto_nome">Curso:</label> 
+    <!--Antes: Produto-->   
     <input type="text" class="form-control autocomplete" 
             id="id_produto_nome" 
             data-url="{% url 'buscar_dados' 'home.Produto' %}" 
@@ -26,7 +30,8 @@
             data-hidden="#id_produto" >
     </p>
     {{ form.as_p }}
-    <button type="submit" class="btn btn-primary btn-sm">Salvar Produto</button>
+    <button type="submit" class="btn btn-primary btn-sm">Salvar Curso</button>
+    <!--Antes: Salvar Produto-->
     <button type="button" onclick="location='{% url 'form_pagamento' id=pedido.id%}'" class="btn btn-primary btn-sm">Registrar Pagamento</button>
     <button type="button" onclick=" location='{% url 'notafiscal' pedido.id %}'" class="btn btn-info btn-sm">Nota Fiscal</button>
 </form>
@@ -34,13 +39,15 @@
 
 <hr>
 <!-- Tabela de Itens já adicionados ao pedido -->
-<h5>Itens do Pedido</h5>
+<h5>Itens da Matrícula</h5>
+<!--Antes: Itens do Pedido-->
 <table class="table table-striped">
     <thead>
         <tr>
             <th>ID</th>
             <th>Img</th>
-            <th>Produto</th>
+            <th>Curso</th>
+            <!--Antes Produto-->
             <th>Quantidade</th>
             <th>Preço Unitário (R$)</th>
             <th>Total (R$)</th>
@@ -70,7 +77,8 @@
     </tbody>
 
 </table>
-<div>Total do Pedido: {{pedido.total}}</div>
+<div>Total de Matrícula: {{pedido.total}}</div>
+<!--Antes: Total do Pedido-->
 <div>Total Pago: {{pedido.total_pago}}</div>
 <div>Débito: {{pedido.debito}}</div>
 
