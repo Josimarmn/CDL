@@ -19,7 +19,7 @@
         <th>Valor(R$)</th>
         <!--Antes: Preço-->
         <th>Categoria</th>
-        <th>Qtde</th>
+        <th>Vagas Dispon</th>
          <th>Ações</th>
       </tr>
     </thead>
@@ -31,7 +31,7 @@
         <td>{{ produto.nome }}</td>
         <td>{{ produto.preco}}</td>
         <td>{{ produto.categoria }}</td>
-        <td>{{ produto.estoque.qtde }}</td>
+        <td style="text-align: center;">{{ produto.estoque.qtde }}</td>
         <td>
           <a href="{% url 'detalhes_produto' produto.id %}" class="btn btn-info btn-sm">Detalhes</a>
           <a href="{% url 'ajustar_estoque' produto.id %}" class="btn btn-success btn-sm">Vagas</a>
