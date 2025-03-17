@@ -38,11 +38,17 @@ class ClienteForm(forms.ModelForm):
             raise forms.ValidationError("O campo cpf deve ser conter 11 dígitos.")
         return cpf
     
-    def clean_datanasc(self):
-        datanasc = self.cleaned_data.get('datanasc')
-        if datanasc > date.today():
-            raise forms.ValidationError("O campo data deve ser menor que a data atual.")
-        return datanasc
+    def clean_contato(self):
+        contato = self.cleaned_data.get('contato')
+        if len(contato) < 12:
+            raise forms.ValidationError("O campo contato deve conter DDD + o número.")
+        return contato
+    
+    #def clean_datanasc(self):
+    #    datanasc = self.cleaned_data.get('datanasc')
+    #    if datanasc > date.today():
+    #        raise forms.ValidationError("O campo data deve ser menor que a data atual.")
+    #    return datanasc
 
 
 class ProdutoForm(forms.ModelForm):

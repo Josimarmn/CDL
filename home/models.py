@@ -15,7 +15,7 @@ class Categoria(models.Model):
 class Cliente(models.Model):
     nome = models.CharField(max_length=100)
     cpf = models.CharField(max_length=14,verbose_name="C.P.F")
-    contato = models.CharField(max_length=14,verbose_name="contato")
+    contato = models.CharField(max_length=20,verbose_name="Contato")
     #datanasc = models.DateField(verbose_name="Data de Nascimento")
     class Meta:
         db_table = 'home_cliente'
