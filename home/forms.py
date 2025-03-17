@@ -20,13 +20,12 @@ class CategoriaForm(forms.ModelForm):
 class ClienteForm(forms.ModelForm):
     class Meta:
         model = Cliente
-        fields = ['nome', 'cpf', 'datanasc']
+        fields = ['nome', 'cpf', 'contato']
         widgets = {
             'nome':forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nome'}),
             'cpf':forms.TextInput(attrs={'class': 'cpf form-control', 'placeholder': 'C.P.F'}),
             'datanasc': forms.DateInput(attrs={'class': 'data form-control', 'placeholder': 'Data de Nascimento'}, format='%d/%m/%Y'),
         }
-
     def clean_nome(self):
         nome = self.cleaned_data.get('nome')
         if len(nome) < 3:

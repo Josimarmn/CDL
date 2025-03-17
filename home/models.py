@@ -3,6 +3,7 @@ from decimal import Decimal
 from django.db import models
 from datetime import date
 import hashlib
+from django.core.validators import RegexValidator
 
 class Categoria(models.Model):
     nome = models.CharField(max_length=100)
@@ -14,17 +15,17 @@ class Categoria(models.Model):
 class Cliente(models.Model):
     nome = models.CharField(max_length=100)
     cpf = models.CharField(max_length=14,verbose_name="C.P.F")
-    datanasc = models.DateField(verbose_name="Data de Nascimento")
-
+    contato = models.CharField(max_length=14,verbose_name="contato")
+    #datanasc = models.DateField(verbose_name="Data de Nascimento")
     class Meta:
         db_table = 'home_cliente'
     
-    @property
-    def datanascimento(self):
-        """Retorna a data de nascimento no formato DD/MM/AAAA"""
-        if self.datanasc:
-            return self.datanasc.strftime('%d/%m/%Y')
-        return None
+    #@property
+    #def datanascimento(self):
+    #    """Retorna a data de nascimento no formato DD/MM/AAAA"""
+    #    if self.datanasc:
+    #        return self.datanasc.strftime('%d/%m/%Y')
+    #    return None
 
 class Produto(models.Model):
     nome = models.CharField(max_length=100)
