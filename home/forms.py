@@ -2,6 +2,9 @@ from django import forms
 from .models import *
 from datetime import date
 
+#Produtos => Cursos
+#Clientes => Alunos
+#Pedidos  => Matrícula
 
 class CategoriaForm(forms.ModelForm):
     class Meta:
@@ -40,8 +43,8 @@ class ClienteForm(forms.ModelForm):
     
     def clean_contato(self):
         contato = self.cleaned_data.get('contato')
-        if len(contato) < 12:
-            raise forms.ValidationError("O campo contato deve conter DDD + o número.")
+        if len(contato) < 10:
+            raise forms.ValidationError("O campo contato deve conter DDD + 9 + o número.")
         return contato
     
     #def clean_datanasc(self):

@@ -5,6 +5,10 @@ from datetime import date
 import hashlib
 from django.core.validators import RegexValidator
 
+#Produtos => Cursos
+#Clientes => Alunos
+#Pedidos  => Matrícula
+
 class Categoria(models.Model):
     nome = models.CharField(max_length=100)
     ordem = models.IntegerField()
