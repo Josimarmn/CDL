@@ -13,9 +13,9 @@
 <table class="table table-hover">
     <thead>
       <tr>
-        <th>ID</th>
+        <!--<th>ID</th>-->
         <th>Cliente</th>
-        <th>Data</th>
+        <!--<th>Data</th>-->
         <th>Situação</th>
         <th>Cursos</th>
         <!--Antes: Produtos-->
@@ -26,9 +26,9 @@
     <tbody>
     {% for pedido in lista %}
       <tr>
-        <td>{{ pedido.id }}</td>
+        <!--<td>{{ pedido.id }}</td>-->
         <td>{{ pedido.cliente.nome }}</td>
-        <td>{{ pedido.data_pedidof}}</td>
+        <!--<td>{{ pedido.data_pedidof}}</td>-->
         <td>Matriculado</td>
         <!--<td>{{ pedido.get_status_display }}</td>-->
         <td style="text-align: center;">{{ pedido.qtdeItens}}</td>  
