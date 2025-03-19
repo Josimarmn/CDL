@@ -28,7 +28,8 @@
 <body>
     <div id="notaFiscal" style="border: 2px solid black; padding: 10px;">
         <div style="display: flex; justify-content: center; align-items: center; font-weight: bold;">
-            DANFE - Documento Auxiliar da Nota Fiscal Eletrônica
+            <!--DANFE - Documento Auxiliar da Nota Fiscal Eletrônica-->
+            RECIBO - COMPROVANTE DE PAGAMENTO
         </div>
         <div style="border: 1px solid black; padding: 10px;">
             <strong> CHAVE DE ACESSO: </strong>{{pedido.chave_acesso}}
@@ -98,13 +99,14 @@
         -->
         </div>
         <div style="display: flex; justify-content: center; align-items: center; font-weight: bold;">
-            Recebemos o pagamento constante nesta nota fiscal.
+            <!--Recebemos o pagamento constante nesta nota fiscal.-->
+            Recebemos o pagamento constante neste recibo.
         </div>
     </div>
 
     <div style="display: flex; justify-content: center; align-items: center; padding-top: 20px;">
-        <button type="button" id="baixarPdfBtn" class="btn btn-info btn-sm">Baixar Nota Fiscal em PDF</button>  
-        
+        <!--<button type="button" id="baixarPdfBtn" class="btn btn-info btn-sm">Baixar Nota Fiscal em PDF</button>-->  
+        <button type="button" id="baixarPdfBtn" class="btn btn-info btn-sm">Baixar Recibo em PDF</button>
     </div>
     <div style="display: flex; justify-content: center; align-items: center; padding-top: 20px;">             
         <a href="{% url 'pedido' %}" class="btn btn-primary">Voltar</a>
