@@ -179,7 +179,7 @@ def listar_clientes(request):
 #listar Alunos com o curso matriculado
 def listar_pedidos(request):
     # Recupera todos os produtos do banco de dados
-    pedidos = Cliente.objects.all()  # Isso retorna uma QuerySet com todos os objetos Produto
+    pedidos = Pedido.objects.all()  # Isso retorna uma QuerySet com todos os objetos Produto
 
     # Passa a lista de produtos para o template
     return render(request, 'listar_pedidos.html', {'pedidos': pedidos})

@@ -6,13 +6,25 @@
 </head>
 <body>
 
-    <h1>Lista de Alunos Matriculados</h1>
+    <h1>Lista de Alunos Matriculados no CDL_Cursos</h1>
+
 
     <ul>
         {% for pedido in pedidos %}
-            <li>{{ pedido.nome }} - {{ pedido.cliente.cpf }}</li>
+            <li>
+                <h3>Aluno: {{ pedido.cliente.nome }}</h3>
+                <ul>
+                    {% for item in pedido.itempedido_set.all %}
+                        <li>
+                            Curso: {{ item.produto.nome }}
+                        </li>
+                    {% empty %}
+                        <li>Este pedido não tem produtos.</li>
+                    {% endfor %}
+                </ul>
+            </li>
         {% empty %}
-            <li>Nenhum produto encontrado.</li>
+            <li>Nenhum pedido encontrado.</li>
         {% endfor %}
     </ul>
 

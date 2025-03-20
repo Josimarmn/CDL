@@ -10,7 +10,7 @@
 
     <ul>
         {% for produto in produtos %}
-            <li>{{ produto.nome }} - Quantidade: {{ produto.categoria}} - Preço: R$ {{ produto.preco}}</li>
+            <li>{{ produto.nome }} - Modalidade: {{ produto.categoria}} - Preço: R$ {{ produto.preco}}</li>
         {% empty %}
             <li>Nenhum cliente encontrado.</li>
         {% endfor %}

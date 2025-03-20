@@ -9,8 +9,8 @@
     <h1>Lista de Alunos</h1>
 
     <ul>
-        {% for cliente in produtos %}
-            <li>{{ cliente.nome }} - Quantidade: {{ item.produto.nome }} - Preço: R$ {{ item.produto.preco }}</li>
+        {% for cliente in clientes %}
+            <li>{{ cliente.nome }} - CPF: {{cliente.cpf }} - Contato: {{ cliente.contato}}</li>
         {% empty %}
             <li>Nenhum cliente encontrado.</li>
         {% endfor %}
