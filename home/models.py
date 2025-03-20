@@ -79,7 +79,7 @@ class Pedido(models.Model):
     total_curso03 = models.IntegerField(null=True)
     total_curso04 = models.IntegerField(null=True)
     total_curso05 = models.IntegerField(null=True)
-
+    total_curso06 = models.IntegerField(null=True)
 
     def __str__(self):
         return f"Pedido {self.id} - Cliente: {self.cliente.nome} - Status: {self.get_status_display()}"

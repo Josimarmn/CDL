@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Alunos</title>
+</head>
+<body>
+
+    <h1>Lista de Cursos</h1>
+
+    <ul>
+        {% for produto in produtos %}
+            <li>{{ produto.nome }} - Quantidade: {{ produto.categoria}} - Preço: R$ {{ produto.preco}}</li>
+        {% empty %}
+            <li>Nenhum cliente encontrado.</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

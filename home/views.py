@@ -150,12 +150,40 @@ def remover_cliente(request, id):
     
     return redirect('cliente')  # Redireciona para a listagem de categorias
 
+
 @login_required
 def produto(request):
     contexto = {
         'lista': Produto.objects.all().order_by('id'),
     }
     return render(request, 'produto/lista.html',contexto)
+
+
+#listar Cursos
+def listar_produtos(request):
+    # Recupera todos os produtos do banco de dados
+    produtos = Produto.objects.all()  # Isso retorna uma QuerySet com todos os objetos Produto
+
+    # Passa a lista de produtos para o template
+    return render(request, 'listar_produtos.html', {'produtos': produtos})
+
+
+#listar Alunos
+def listar_clientes(request):
+    # Recupera todos os produtos do banco de dados
+    clientes = Cliente.objects.all()  # Isso retorna uma QuerySet com todos os objetos Produto
+
+    # Passa a lista de produtos para o template
+    return render(request, 'listar_clientes.html', {'clientes': clientes})
+
+#listar Alunos com o curso matriculado
+def listar_pedidos(request):
+    # Recupera todos os produtos do banco de dados
+    pedidos = Cliente.objects.all()  # Isso retorna uma QuerySet com todos os objetos Produto
+
+    # Passa a lista de produtos para o template
+    return render(request, 'listar_pedidos.html', {'pedidos': pedidos})
+
 
 @login_required
 def form_produto(request):
