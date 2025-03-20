@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nota Fiscal</title>
+    <!--<title>Nota Fiscal</title>-->
+    <title>Recibo</title>
     <style>
         table {
           width: 100%;
@@ -55,7 +56,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Código</th>
+                        <!--<th>Código</th>-->
                         <th>Descrição</th>
                         <th>Qtd</th>
                         <th>Valor Unitário</th>
@@ -66,7 +67,7 @@
                 <tbody>
                     {% for item in pedido.itempedido_set.all %}
                     <tr>
-                        <td>{{ item.id }}</td>
+                        <!--<td>{{ item.id }}</td>-->
                         <td>{{ item.produto.nome }}</td>
                         <td>{{ item.qtde }}</td>
                         <td>R$ {{ item.produto.preco}}</td>

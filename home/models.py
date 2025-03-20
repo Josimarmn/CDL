@@ -47,8 +47,7 @@ class Produto(models.Model):
 
 class Estoque(models.Model):
     produto = models.ForeignKey(Produto, on_delete=models.CASCADE)
-    qtde = models.IntegerField()
-
+    qtde = models.IntegerField()   
     def __str__(self):
         return f'{self.produto.nome} - Quantidade: {self.qtde}'
 
