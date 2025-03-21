@@ -1,6 +1,16 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="pt-br">
-<head>
+<head>-->
+{% extends "base.html" %}
+
+{% block titulo_conteudo %} Login {% endblock titulo_conteudo %}
+<!--Antes: Listagem de Produtos-->
+{% block conteudo %} 
+
+<div class="card-header card-header-custom" style="background-color: green;">
+    <h5 style="text-align: center;">CADERNO DE LETRAS - CDL_Cursos</h5>
+</div>
+<p></p>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
@@ -27,9 +37,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://unpkg.com/vue@next"></script>
 
-    
-</body>
-</html>
+{% endblock conteudo %}    
+<!--</body>
+</html>-->
 
 
 

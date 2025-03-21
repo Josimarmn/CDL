@@ -160,6 +160,7 @@ def produto(request):
 
 
 #listar Cursos
+@login_required
 def listar_produtos(request):
     # Recupera todos os produtos do banco de dados
     produtos = Produto.objects.all()  # Isso retorna uma QuerySet com todos os objetos Produto
@@ -169,6 +170,7 @@ def listar_produtos(request):
 
 
 #listar Alunos
+@login_required
 def listar_clientes(request):
     # Recupera todos os produtos do banco de dados
     clientes = Cliente.objects.all()  # Isso retorna uma QuerySet com todos os objetos Produto
@@ -177,6 +179,7 @@ def listar_clientes(request):
     return render(request, 'listar_clientes.html', {'clientes': clientes})
 
 #listar Alunos com o curso matriculado
+@login_required
 def listar_pedidos(request):
     # Recupera todos os produtos do banco de dados
     pedidos = Pedido.objects.all()  # Isso retorna uma QuerySet com todos os objetos Produto
@@ -464,6 +467,7 @@ def form_pagamento(request,id):
     }    
     return render(request, 'pedido/pagamento.html',contexto)
 
+@login_required
 def notafiscal(request,id):
     try:
         pedido = Pedido.objects.get(pk=id)
@@ -476,6 +480,7 @@ def notafiscal(request,id):
   
     return render(request, 'pedido/notafiscal.html',{'pedido':pedido})
 
+@login_required
 def editar_item_pagamento(request, id):
     try:
         pagamento = Pagamento.objects.get(pk=id)
@@ -505,6 +510,7 @@ def editar_item_pagamento(request, id):
 
     return render(request, 'pedido/pagamento.html', contexto)
 
+@login_required
 def remover_item_pagamento(request, id):
     try:
         pagamento = Pagamento.objects.get(pk=id)
