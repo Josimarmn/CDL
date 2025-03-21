@@ -1,11 +1,15 @@
 {% extends "base.html" %}
 
 
-{% block titulo_conteudo %} Detalhes da Matrícula #{{ pedido.id }} {% endblock titulo_conteudo %}
+{% block titulo_conteudo %} Detalhes da Matrícula <!--#{{ pedido.id }} -->{% endblock titulo_conteudo %}
 <!--Antes: Detalhes do Pedido -->
 
 {% block conteudo %} 
 
+<div class="card-header card-header-custom" style="background-color: green;">
+  <h5 style="text-align: center;">CADERNO DE LETRAS - CDL_Cursos</h5>
+</div>
+<p></p>
 
 <p><strong>Aluno:</strong> {{ pedido.cliente.nome }}</p>
 <!--Antes: Cliente-->

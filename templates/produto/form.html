@@ -3,6 +3,12 @@
 {% block titulo_conteudo %} Formulário de Cursos {% endblock titulo_conteudo %}
 <!--Antes: Formulário de Produtos-->
 {% block conteudo %} 
+
+<div class="card-header card-header-custom" style="background-color: green;">
+    <h5 style="text-align: center;">CADERNO DE LETRAS - CDL_Cursos</h5>
+</div>
+<p></p>
+
 <form method="post">
     {% csrf_token %}    
     {{ form.as_p }}

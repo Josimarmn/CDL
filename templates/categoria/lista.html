@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
 
-{% block titulo_conteudo %} Listagem de Modalidade {% endblock titulo_conteudo %}
+{% block titulo_conteudo %} Modalidade do Curso{% endblock titulo_conteudo %}
 
 <!-- Antes: Listagem de Categoria-->
 
 {% block conteudo %}
-
+<div class="card-header card-header-custom" style="background-color: green;">
+    <h5 style="text-align: center;">CADERNO DE LETRAS - CDL_Cursos</h5>
+</div>
+<p></p>
 <button class="btn btn-primary" onclick="location.href='{% url 'form_categoria' %}'">Nova Modalidade</button>
 <!-- Antes: Nova Categoria-->
 

@@ -1,8 +1,13 @@
 {% extends "base.html" %}
 
-{% block titulo_conteudo %} Listagem de Cursos {% endblock titulo_conteudo %}
+{% block titulo_conteudo %} Cursos Ofertados{% endblock titulo_conteudo %}
 <!--Antes: Listagem de Produtos-->
 {% block conteudo %} 
+
+<div class="card-header card-header-custom" style="background-color: green;">
+  <h5 style="text-align: center;">CADERNO DE LETRAS - CDL_Cursos</h5>
+</div>
+<p></p>
 
 <div class="barrabotoes">
 <button onClick="location='{% url "form_produto" %}'" type="button" class="btn btn-primary btn-sm">Inserir Novo</button>
