@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Lista de Alunos</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block titulo_conteudo %} Lista de Cursos {% endblock titulo_conteudo %}
+<!--Antes: Listagem de Produtos-->
+{% block conteudo %} 
 
     <h1>Lista de Cursos</h1>
 
@@ -16,5 +14,4 @@
         {% endfor %}
     </ul>
 
-</body>
-</html>
+{% endblock conteudo %}

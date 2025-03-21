@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Lista de Alunos</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-    <h1>Lista de Alunos</h1>
+{% block titulo_conteudo %} Lista de Alunos {% endblock titulo_conteudo %}
+<!--Antes: Listagem de Produtos-->
+{% block conteudo %} 
 
+   <!-- <h1>Lista de Alunos</h1>-->
     <ul>
         {% for cliente in clientes %}
             <li>{{ cliente.nome }} - CPF: {{cliente.cpf }} - Contato: {{ cliente.contato}}</li>
@@ -16,5 +13,4 @@
         {% endfor %}
     </ul>
 
-</body>
-</html>
+{% endblock conteudo %}

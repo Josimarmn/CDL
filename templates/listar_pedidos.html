@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Lista de Alunos</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-    <h1>Lista de Alunos Matriculados no CDL_Cursos</h1>
+{% block titulo_conteudo %} Alunos Matriculados{% endblock titulo_conteudo %}
 
+    <!--<h1>Lista de Alunos Matriculados no CDL_Cursos</h1>-->
+{% block conteudo %} 
 
     <ul>
         {% for pedido in pedidos %}
             <li>
-                <h3>Aluno: {{ pedido.cliente.nome }}</h3>
+                <h3>{{ pedido.cliente.nome }}</h3>
                 <ul>
                     {% for item in pedido.itempedido_set.all %}
                         <li>
@@ -28,5 +24,4 @@
         {% endfor %}
     </ul>
 
-</body>
-</html>
+{% endblock conteudo %}
