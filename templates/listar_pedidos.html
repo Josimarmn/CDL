@@ -1,27 +1,35 @@
 {% extends "base.html" %}
 
-{% block titulo_conteudo %} Alunos Matriculados{% endblock titulo_conteudo %}
+{% block titulo_conteudo %} Alunos Matriculados {% endblock titulo_conteudo %}
 
-    <!--<h1>Lista de Alunos Matriculados no CDL_Cursos</h1>-->
-{% block conteudo %} 
+{% block conteudo %}
+    <h2>Lista de Alunos e Cursos</h2>
 
-    <ul>
-        {% for pedido in pedidos %}
-            <li>
-                <h3>{{ pedido.cliente.nome }}</h3>
-                <ul>
-                    {% for item in pedido.itempedido_set.all %}
-                        <li>
-                            Curso: {{ item.produto.nome }}
-                        </li>
-                    {% empty %}
-                        <li>Este pedido não tem produtos.</li>
-                    {% endfor %}
-                </ul>
-            </li>
-        {% empty %}
-            <li>Nenhum pedido encontrado.</li>
-        {% endfor %}
-    </ul>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Aluno</th>
+                <th>Curso</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pedido in pedidos %}
+                {% for item in pedido.itempedido_set.all %}
+                    <tr>
+                        <td>{{ pedido.cliente.nome }}</td>
+                        <td>{{ item.produto.nome }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="2">Este aluno não fez a matrícula.</td>
+                    </tr>
+                {% endfor %}
+            {% empty %}
+                <tr>
+                    <td colspan="2">Nenhuma matrícula encontrada.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
 {% endblock conteudo %}
