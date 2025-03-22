@@ -14,6 +14,7 @@
         <thead>
             <tr>
                 <th style="border: 1px solid black;">Aluno</th>
+                <th style="border: 1px solid black;">Contato</th>
                 <th style="border: 1px solid black;">Curso</th>
             </tr>
         </thead>
@@ -22,6 +23,7 @@
                 {% for item in pedido.itempedido_set.all %}
                     <tr>
                         <td style="border: 1px solid black;">{{ pedido.cliente.nome }}</td>
+                        <td style="border: 1px solid black;">{{ pedido.cliente.contato }}</td>
                         <td style="border: 1px solid black;">{{ item.produto.nome }}</td>
                     </tr>
                 {% empty %}
