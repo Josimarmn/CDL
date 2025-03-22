@@ -27,6 +27,7 @@ class ClienteForm(forms.ModelForm):
         widgets = {
             'nome':forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nome'}),
             'cpf':forms.TextInput(attrs={'class': 'cpf form-control', 'placeholder': 'C.P.F'}),
+            'contato':forms.TextInput(attrs={'class': 'telefone form-control', 'placeholder': 'Contato'}),
             'datanasc': forms.DateInput(attrs={'class': 'data form-control', 'placeholder': 'Data de Nascimento'}, format='%d/%m/%Y'),
         }
     def clean_nome(self):
