@@ -10,12 +10,36 @@
 <p></p>
 
    <!-- <h1>Lista de Alunos</h1>-->
-    <ul>
+<!--    <ul>
         {% for cliente in clientes %}
             <li>{{ cliente.nome }} - CPF: {{cliente.cpf }} - Contato: {{ cliente.contato}}</li>
         {% empty %}
             <li>Nenhum cliente encontrado.</li>
         {% endfor %}
     </ul>
+-->
+<table style="border-collapse: collapse; width: 100%; border: 1px solid black;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid black;">Aluno</th>
+            <th style="border: 1px solid black;">CPF</th>
+            <th style="border: 1px solid black;">Contato</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cliente in clientes %}
+            <tr>
+                <td style="border: 1px solid black;">{{ cliente.nome }}</td>
+                <td style="border: 1px solid black;">{{ cliente.cpf }}</td>
+                <td style="border: 1px solid black;">{{ cliente.contato }}</td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="3" style="border: 1px solid black; text-align: center;">Nenhum cliente encontrado.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
 
 {% endblock conteudo %}

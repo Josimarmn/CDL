@@ -10,31 +10,32 @@
     </div>
     <p></p>
     
-    <table border="1">
+    <table style="border-collapse: collapse; width: 100%; border: 1px solid black;">
         <thead>
             <tr>
-                <th>Aluno</th>
-                <th>Curso</th>
+                <th style="border: 1px solid black;">Aluno</th>
+                <th style="border: 1px solid black;">Curso</th>
             </tr>
         </thead>
         <tbody>
             {% for pedido in pedidos %}
                 {% for item in pedido.itempedido_set.all %}
                     <tr>
-                        <td>{{ pedido.cliente.nome }}</td>
-                        <td>{{ item.produto.nome }}</td>
+                        <td style="border: 1px solid black;">{{ pedido.cliente.nome }}</td>
+                        <td style="border: 1px solid black;">{{ item.produto.nome }}</td>
                     </tr>
                 {% empty %}
                     <tr>
-                        <td colspan="2">Este aluno não fez a matrícula.</td>
+                        <td colspan="2" style="border: 1px solid black; text-align: center;">Este aluno não fez a matrícula.</td>
                     </tr>
                 {% endfor %}
             {% empty %}
                 <tr>
-                    <td colspan="2">Nenhuma matrícula encontrada.</td>
+                    <td colspan="2" style="border: 1px solid black; text-align: center;">Nenhuma matrícula encontrada.</td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
+    
 
 {% endblock conteudo %}
