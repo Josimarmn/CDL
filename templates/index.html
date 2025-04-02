@@ -12,9 +12,20 @@
             <div class="card-header card-header-custom">
                 <h5>Total de Alunos Matriculados</h5>
             </div>
-            <div class="card-body card-body-custom">
-                <h3>225</h3>
-            </div>
+
+        <div class="card-body card-body-custom">
+            <h3 id="valor"></h3> <!-- Aqui vamos inserir o valor da variável -->
+        </div>
+    
+        <script>
+            // Definindo a variável
+            var valor = 150; // Você pode mudar esse valor dinamicamente conforme necessário
+    
+            // Colocando o valor da variável no lugar do conteúdo do <h3>
+            document.getElementById('valor').textContent = valor;
+        </script>
+
+
         </div>
     </div>
 </div>

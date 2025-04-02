@@ -24,6 +24,10 @@ class Cliente(models.Model):
     class Meta:
         db_table = 'home_cliente'
     
+    @classmethod
+    def total_clientes(cls):
+        """Retorna o total de clientes cadastrados"""
+        return cls.objects.count()
     #@property
     #def datanascimento(self):
     #    """Retorna a data de nascimento no formato DD/MM/AAAA"""
@@ -74,6 +78,7 @@ class Pedido(models.Model):
     valor_ipi = models.DecimalField(max_digits=10, decimal_places=2)
     valor_pis = models.DecimalField(max_digits=10, decimal_places=2)
     valor_confins = models.DecimalField(max_digits=10, decimal_places=2)
+    total_alunos = models.IntegerField(null=True)
     total_curso01 = models.IntegerField(null=True)
     total_curso02 = models.IntegerField(null=True)
     total_curso03 = models.IntegerField(null=True)
@@ -116,6 +121,7 @@ class Pedido(models.Model):
     def qtdeItens(self):
         """Conta a qtde de itens no pedido, """
         return self.itempedido_set.count()  
+    
 
     @property    
     def pagamentos(self):

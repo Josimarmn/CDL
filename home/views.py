@@ -259,11 +259,6 @@ def ajustar_estoque(request, id):
     return render(request, 'produto/estoque.html', {'form': form,})
 
 
-def teste1(request):
-    return render(request, 'testes/teste1.html')
-
-def teste2(request):
-    return render(request, 'testes/teste2.html')
 
 def buscar_dados(request, app_modelo):
     termo = request.GET.get('q', '') # pega o termo digitado
@@ -282,8 +277,7 @@ def buscar_dados(request, app_modelo):
     dados = [{'id': obj.id, 'nome': obj.nome} for obj in resultados]
     return JsonResponse(dados, safe=False)
 
-def teste3(request):
-    return render(request, 'testes/teste3.html')
+
 
 @login_required
 def pedido(request):
@@ -526,3 +520,10 @@ def remover_item_pagamento(request, id):
 
     # Redireciona de volta para a página de detalhes do pedido
     return redirect('detalhes_pedido', id=pedido_id)
+
+def total_alunos(request):
+    # Calculando o valor
+    total_alunos = 255  # Exemplo de valor
+    
+    # Passando o valor para o template
+    return render(request, 'index.html', {'total_alunos': total_alunos})
